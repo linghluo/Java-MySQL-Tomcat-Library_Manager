@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册失败页</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/mouse_main.js" defer></script>
+    <script src="js/registFail.js" defer></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        #b1 {
+            height: 100%;
+            width: auto;
+            margin-right: 100px;
+        }
+
+        #b2 {
+            height: 100%;
+            width: auto;
+            position: absolute;
+        }
+
+        #b3 {
+            height: 100%;
+            width: auto;
+            margin-left: 100px;
+        }
+
+        .side-left,
+        .side-right {
+            writing-mode: vertical-rl;
+            font-size: 60px;
+            text-align: center;
+            background-color: rgb(255, 204, 0);
+            padding: 10px;
+        }
+
+        .side-right {
+            writing-mode: vertical-lr;
+            background-color: rgb(0, 204, 255);
+        }
+
+        .tx {
+            color: #000000;
+            text-shadow: 0 0 3px rgb(255, 255, 255), 0 0 3px rgb(255, 255, 255), 0 0 3px rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <div id="tail_show"></div>
+
+    <div class="container">
+        <div class="side-left tx">至少...要注册成功吧</div>
+        <img id="b1" src="./resources/img/猎.jpg">
+        <img id="b2" src="./resources/img/鸡煲.jpg">
+        <img id="b3" src="./resources/img/战.jpg">
+        <div class="side-right tx">鸡煲之神在上，返回塔底</div>
+    </div>
+
+</body>
+
+</html>

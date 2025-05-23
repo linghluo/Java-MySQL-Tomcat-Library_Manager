@@ -1,0 +1,51 @@
+
+IDEA 版本：2024.2
+Tomcat 版本：10.1.34
+java 版本：21
+
+使用的是MySQL，推荐使用SQLyog可视化数据库
+
+db.properties配置信息中，password需要更改为自己的密码
+
+以下是用到的数据库的构建
+=================================================
+
+-- 创建数据库 webtest
+CREATE DATABASE IF NOT EXISTS webtest;
+
+-- 使用数据库 webtest
+USE webtest;
+
+-- 创建表 regist
+CREATE TABLE IF NOT EXISTS regist (
+    registN VARCHAR(10) PRIMARY KEY,  -- registN为主键
+    registP VARCHAR(20) NOT NULL,  -- registP不能为空
+    nameown VARCHAR(15)  -- nameown可以为空
+);
+
+-- 创建表 book
+CREATE TABLE IF NOT EXISTS book (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    is_borrowed BOOLEAN DEFAULT FALSE  -- 新增字段，标记图书是否被借出
+);
+
+-- 创建表 borrow_record
+CREATE TABLE IF NOT EXISTS borrow_record (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    USER VARCHAR(10),       -- 对应 regist.registN
+    book_id INT,
+    borrow_date DATE,       -- 记录借阅日期
+    returned BOOLEAN DEFAULT FALSE,  -- 是否归还
+    FOREIGN KEY (USER) REFERENCES regist(registN),  -- 外键关联 regist
+    FOREIGN KEY (book_id) REFERENCES book(id)  -- 外键关联 book
+);
+
+=================================================
+
+相关问题
+BookDaoimpl中的 borrowBook 中的注释部分（条件筛选）
+打断点调试了整整一个通宵，还是没发现问题所在，
+只锁定到了        try (Connection conn = DruidTest.getConnection()) {
+            		try (PreparedStatement stmt = conn.prepareStatement(updateBookSql)) {
+异常是出自这里的

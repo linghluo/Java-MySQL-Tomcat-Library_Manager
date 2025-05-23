@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册界面</title>
+
+    <link href="https://cdn.bootcss.com/font-awesome/6.7.2/css/all.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/registration.css">
+    <link rel="prefetch" href="./resources/videos/3.mp4" as="video">
+
+    <script src="./js/mouse_main.js" defer></script>
+    <script src="./js/login.js" defer></script>
+</head>
+
+<body>
+    <video src="./resources/videos/3.mp4" autoplay muted loop></video>
+    <div id="tail_show"></div>
+
+    <form id="regist-form" action="/user/login" method="post" onsubmit="return submitForm()">
+        <h1 class="tx2">欢迎！</h1>
+
+        <div class="inputBox">
+            <span class="tx1 sp1">账号</span><br />
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="请输入账户" name="loginname" onblur="checkUsername()" required>
+        </div>
+
+        <div class="inputBox2">
+            <span class="tx1 sp2">密码</span><br />
+            <i style="position:relative; left: 15px;" class="fa-solid fa-lock"></i>
+            <input class="inpt1" id="password" type="password" placeholder="请输入密码" name="loginpassword"
+                onblur="checkPassword()" required>
+            <i style="position:relative; right: 30px;color:rgba(0, 0, 0, 0.39);" class="fa-solid fa-eye-slash"></i>
+        </div>
+        <span id="tip" class="tx1" style="font-size:25px;color:rgba(91, 91, 91, 0.8);"></span>
+        <br />
+        <button type="submit" class="btn" style="box-shadow: 0 0 10px 0 rgba(255, 153, 144, 0.5);">登录</button>
+        <div>
+            <input type="checkbox" required>
+            我已阅读并同意<a href="./agreement.html">《用户协议》</a>
+        </div>
+        <br />
+        <div>
+            <p class="link">还没有账号？<a href="./registration.html">注册</a></p>
+        </div>
+        <div style="padding-bottom: 50px;">
+        </div>
+    </form>
+</body>
+
+</html>

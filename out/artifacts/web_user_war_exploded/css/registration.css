@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    outline: none;
+    border: none;
+}
+
+.background-img {
+    background-image: url('../resources/img/2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+input[type="password"]::-ms-reveal {
+    display: none
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#regist-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255, 0.5);
+    height: 502px;
+    width: 616px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255, 0.300);
+    backdrop-filter: blur(1px);
+    box-shadow: 0 0 10px 0 rgba(0, 242, 255, 0.5);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: rgba(248, 255, 42, 0.9);
+    margin: 25px;
+}
+
+.btn {
+    background-color: rgb(255, 255, 255, 0.75);
+    color: black;
+    padding: 7px 150px;
+    border: 1px solid white;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px 0 rgba(251, 255, 144, 0.5);
+}
+
+button:hover {
+    background-color: rgb(180, 180, 180, 0.3);
+}
+
+.inputBox {
+    border: 1px;
+    padding: 0 0 25px 0;
+    height: 55px;
+    border-radius: 50px;
+}
+
+.inputBox2 {
+    border: 1px;
+    height: 55px;
+    border-radius: 50px;
+}
+
+input {
+    background-color: transparent;
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0, 0.8);
+    padding: 5px 25px;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    border-radius: 50px;
+    box-shadow: 0 0 10px 0 rgba(144, 249, 255, 0.5);
+    text-shadow: 0 0 3px rgba(80, 246, 255, 0.801), 0 0 3px rgba(252, 255, 80, 0.801), 0 0 3px rgba(252, 255, 80, 0.801)
+}
+
+input::placeholder {
+    background-color: transparent;
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0, 0.2);
+    padding: 5px 25px;
+    text-shadow: 0 0 3px rgba(80, 246, 255, 0.801), 0 0 3px rgba(252, 255, 80, 0.801), 0 0 3px rgba(252, 255, 80, 0.801)
+}
+
+.sp1 {
+    position: relative;
+    right: 6px;
+    color: rgba(91, 91, 91, 0.8);
+}
+
+.sp2 {
+    position: relative;
+    right: -9px;
+    color: rgba(91, 91, 91, 0.8);
+}
+
+.inpt1 {
+    position: relative;
+    left: 15px;
+}
+
+.tx1 {
+    text-shadow: 0 0 3px rgb(255, 204, 204), 0 0 3px rgb(255, 204, 204), 0 0 3px rgb(255, 204, 204);
+}
+
+.tx2 {
+    text-shadow: 0 0 5px rgba(41, 148, 254, 0.6), 0 0 5px rgba(41, 148, 254, 0.6), 0 0 5px rgba(41, 148, 254, 0.6);
+}

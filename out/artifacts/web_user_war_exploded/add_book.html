@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加图书</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/mouse_main.js" defer></script>
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(37, 211, 10, 0.714);
+            text-align: center;
+        }
+
+        .tx2 {
+            font-size: 2rem;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .inputBox {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .inputBox input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #e1f006c1;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .inputBox button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: rgb(52, 152, 219, 0.6);
+            color: #ffffff;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .inputBox button:hover {
+            background-color: rgb(41, 128, 185, 0.8)
+        }
+
+        .btn-back {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: rgb(52, 152, 219, 0.8);
+            color: white;
+            font-size: 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="./resources/videos/5.mp4" autoplay muted loop></video>
+    <div id="tail_show"></div>
+    <div class="overlay">
+        <div class="form-container">
+            <h2 class="tx2">添加新图书</h2>
+
+            <form action="/book/add" method="post">
+                <div class="inputBox">
+                    <label for="title" class="tx1">书名：</label>
+                    <input type="text" id="title" name="title" required placeholder="请输入图书名称">
+                </div>
+
+                <button type="submit" class="btn-back">添加图书</button>
+            </form>
+
+            <br>
+
+            <a href="book_list.html" class="btn-back">返回图书列表</a>
+        </div>
+    </div>
+</body>
+
+</html>

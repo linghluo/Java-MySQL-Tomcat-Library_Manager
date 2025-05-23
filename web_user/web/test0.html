@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试用</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <style>
+        #div1 {
+            text-align: center;
+            font-size: 100px;
+            color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .tx1T {
+            text-shadow: 0 0 10px rgba(192, 74, 234), 0 0 10px rgba(192, 74, 234),
+                0 0 10px rgba(192, 74, 234), 0 0 10px rgba(192, 74, 234);
+        }
+    </style>
+
+    <script src="./js/mouse_main.js" defer></script>
+    <script src="./js/test.js"></script>
+    <style>
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            height: 80px;
+            background-color: #ff0000;
+        }
+
+        .content {
+            min-height: 500px;
+            background-color: #bccad7;
+        }
+
+        .footer {
+            height: 60px;
+            background-color: #fda6a6;
+        }
+
+        a {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <div id="tail_show"></div>
+
+    <header class="container header">
+        <p>页头</p>
+    </header>
+
+    <main class="container">
+        <article class="content">
+            <p>测试页面主体</p>
+            <hr>
+            <!-- √ -->
+            <a href="./index.html">跳转页面√</a><br>
+            <a href="./agreement.html">用户协议页面√</a><br>
+            <a href="./registration.html">注册界面√</a><br>
+            <a href="./registrationFail.html">注册失败页面√</a><br>
+            <a href="./registrationstart.html">注册成功页面√</a><br>
+            <a href="./login.html">登录页面√</a><br>
+            <a href="./loginFail.html">登录失败页面√</a><br>
+            <a href="./newWorld.html">登陆成功页面（主页面）√</a><br>
+            <a href="./noFound404.html">404页面（及失败页面）√</a><br>
+            <a href="./success.html">成功页面√</a><br>
+            <a href="./000.html">测试页面2</a><br>
+            <hr>
+            <div id="div1" class="tx1T">故障机器人<br>天下第一！</div>
+        </article>
+
+    </main>
+
+    <footer class="container footer">页脚</footer>
+</body>
+
+</html>

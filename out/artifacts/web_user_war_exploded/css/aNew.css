@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+#backimg {
+    background-image: url('../resources/img/006.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: absolute;
+    background-attachment: fixed;
+    background-color: black;
+}
+
+.img-fix {
+    position: fixed;
+}
+
+#img1,
+#img2 {
+    height: 125px;
+    width: auto;
+    top: -30px;
+
+}
+
+#img1 {
+    position: absolute;
+    left: -760px;
+}
+
+#img2 {
+    position: absolute;
+    left: 640px;
+}
+
+#bigger-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255, 0.5);
+    height: 220%;
+    width: 900px;
+    border: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(255, 173, 173, 0.984);
+
+}

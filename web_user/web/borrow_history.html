@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>借阅记录</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/mouse_main.js" defer></script>
+    <script>
+        $(document).ready(function () {
+            // 查询按钮点击事件
+            $('#search-btn').click(function () {
+                var username = $('#username-input').val();  // 获取输入的用户名
+
+                if (!username) {
+                    alert("请输入用户名");
+                    return;
+                }
+
+                // 获取借阅记录
+                $.ajax({
+                    url: "/borrow/records",  // 后端请求借阅记录
+                    method: "GET",
+                    data: {
+                        user: username  // 将输入的用户名传给后端
+                    },
+                    success: function (response) {
+                        var borrowRecords = response;
+                        var html = '';
+                        borrowRecords.forEach(function (record) {
+                            html += '<tr>';
+                            html += '<td>' + record.bookTitle + '</td>';
+                            html += '<td>' + record.borrowDate + '</td>';
+                            html += '<td>' + (record.returned ? '已归还' : '未归还') + '</td>';
+                            html += '<td>';
+                            if (!record.returned) {
+                                // 在按钮上添加 data-book-id 和 data-username
+                                html += '<button class="return-btn" data-book-id="' + record.bookId + '" data-username="' + $('#username-input').val() + '">归还</button>';
+                            } else {
+                                html += '无操作';
+                            }
+                            html += '</td>';
+                            html += '</tr>';
+                        });
+                        $('#borrow-history tbody').html(html);  // 填充借阅记录表格
+                    },
+                    error: function () {
+                        alert("无法获取借阅记录！");
+                    }
+                });
+            });
+
+            // 归还图书功能
+            $(document).on("click", ".return-btn", function () {
+                // 获取存储在按钮上的数据（bookId 和 username）
+                var bookId = $(this).data("book-id");  // 获取当前记录的书本ID
+                var username = $(this).data("username");  // 获取用户名
+
+                // 向后端发送归还请求
+                $.ajax({
+                    url: "/book/return",
+                    method: "POST",
+                    data: {
+                        bookId: bookId,  // 书本ID
+                        user: username   // 用户名
+                    },
+                    success: function () {
+                        alert("图书归还成功！");
+                        window.location.href = "/success.html";  // 归还成功后跳转到 success 页面
+                    },
+                    error: function () {
+                        alert("归还请求失败，请稍后再试！");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(240, 31, 31, 0.8);
+            text-align: center;
+        }
+
+        .tx2 {
+            font-size: 2rem;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .inputBox {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .inputBox input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: rgba(248, 249, 250, 0.5);
+            border: 1px solid rgb(241, 38, 38);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .inputBox button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: rgb(52, 152, 219, 0.8);
+            color: #ffffff;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .inputBox button:hover {
+            background-color: rgb(41, 128, 185, 0.8);
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .styled-table th {
+            background-color: rgb(52, 152, 219, 0.8);
+            color: white;
+        }
+
+        .styled-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            padding: 10px 20px;
+            background-color: rgb(52, 152, 219, 0.8);
+            color: white;
+            font-size: 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: rgb(41, 128, 185, 0.8);
+        }
+
+        .return-btn {
+            padding: 6px 12px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .return-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="./resources/videos/2.mp4" autoplay muted loop></video>
+    <div id="tail_show"></div>
+    <div class="overlay">
+        <div class="form-container">
+            <h2 class="tx2">我的借阅记录</h2>
+
+            <div class="inputBox">
+                <label for="username-input" class="tx1">请输入用户名：</label>
+                <input type="text" id="username-input" placeholder="输入用户名" class="input-field">
+                <button id="search-btn" class="btn">查询借阅记录</button>
+            </div>
+
+            <br>
+            <table id="borrow-history" class="styled-table">
+                <thead>
+                    <tr>
+                        <th>书名</th>
+                        <th>借阅日期</th>
+                        <th>归还状态</th>
+                        <th>操作</th> <!-- 新增操作列 -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- AJAX 动态加载 -->
+                </tbody>
+            </table>
+
+            <br>
+            <a href="book_list.html" class="btn">返回图书列表</a>
+        </div>
+    </div>
+</body>
+
+</html>

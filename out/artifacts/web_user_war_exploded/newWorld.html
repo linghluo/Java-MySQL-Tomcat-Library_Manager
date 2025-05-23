@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册成功页面</title>
+
+    <link href="https://cdn.bootcss.com/font-awesome/6.7.2/css/all.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/aNew.css">
+    <link rel="stylesheet" href="./css/registration.css">
+
+    <script src="./js/mouse_main.js" defer></script>
+    <script src="./js/aNew.js"></script>
+
+</head>
+
+<body id="backimg">
+    <div id="tail_show"></div>
+    <div class="img-fix">
+        <img id="img1" src="./resources/img/芙兰朵露.gif">
+        <img id="img2" src="./resources/img/蕾米莉亚.gif">
+    </div>
+
+    <div class="container">
+        <div id="bigger-box">
+            <form id="regist-form" action="/user/del" method="post" onsubmit="return submitForm()">
+                <h1 class="tx2">注销账户</h1>
+
+                <div class="inputBox">
+                    <span class="tx1 sp1">账号</span><br />
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="请输入账户" name="delname" onblur="checkUsername()" required>
+                </div>
+
+                <div class="inputBox2">
+                    <span class="tx1 sp2">密码</span><br />
+                    <i style="position:relative; left: 15px;" class="fa-solid fa-lock"></i>
+                    <input class="inpt1" id="password1" type="password" placeholder="请输入密码" name="delpassword"
+                        onblur="checkPassword1()" required>
+                    <i style="position:relative; right: 30px;color:rgba(0, 0, 0, 0.39);"
+                        class="fa-solid fa-eye-slash"></i>
+                </div>
+                <span id="tip1" class="tx1" style="font-size:25px;color:rgba(91, 91, 91, 0.8);"></span>
+                <br />
+                <button type="submit" class="btn"
+                    style="box-shadow: 0 0 10px 0 rgba(255, 153, 144, 0.5);margin-top:30px">登录</button>
+                <div>
+                    <p class="link">测试导航页面<a href="test0.html">test</a></p>
+                </div>
+                <div style="padding-bottom: 40px;">
+                </div>
+            </form>
+
+            <br>
+
+            <form id="regist-form" action="/user/setusername" method="post" onsubmit="return submitForm()">
+                <h1 class="tx2">设置用户名</h1>
+
+                <div class="inputBox">
+                    <span class="tx1 sp1">账号</span><br />
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="请输入账户" name="stname" onblur="checkUsername()" required>
+                </div>
+
+                <div class="inputBox">
+                    <span class="tx1 sp2">密码</span><br />
+                    <i style="position:relative; left: 15px;" class="fa-solid fa-lock"></i>
+                    <input class="inpt1" id="password2" type="password" placeholder="请输入密码" name="stpassword"
+                        onblur="checkPassword2()" required>
+                    <i style="position:relative; right: 30px;color:rgba(0, 0, 0, 0.39);"
+                        class="fa-solid fa-eye-slash"></i>
+                </div>
+
+                <span id="tip2" class="tx1" style="font-size:25px;color:rgba(91, 91, 91, 0.8);"></span>
+
+                <div class="inputBox2">
+                    <span class="tx1 sp1">用户名</span><br />
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="请输入用户名" name="stown" onblur="checkUsername()" required>
+                </div>
+
+                <br />
+                <button type="submit" class="btn"
+                    style="box-shadow: 0 0 10px 0 rgba(255, 153, 144, 0.5);margin-top:30px">登录</button>
+                <div style="padding-bottom: 40px;">
+                </div>
+            </form>
+
+            <br>
+
+            <form id="regist-form" action="/user/update" method="post" onsubmit="return submitForm()">
+                <h1 class="tx2">更改密码和名</h1>
+
+                <div class="inputBox">
+                    <span class="tx1 sp1">账号</span><br />
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="请输入账户" name="stname" onblur="checkUsername()" required>
+                </div>
+
+                <div class="inputBox">
+                    <span class="tx1 sp2">密码</span><br />
+                    <i style="position:relative; left: 15px;" class="fa-solid fa-lock"></i>
+                    <input class="inpt1" id="password3" type="password" placeholder="请输入密码" name="stpassword"
+                        onblur="checkPassword3()" required>
+                    <i style="position:relative; right: 30px;color:rgba(0, 0, 0, 0.39);"
+                        class="fa-solid fa-eye-slash"></i>
+                </div>
+
+                <span id="tip3" class="tx1" style="font-size:25px;color:rgba(91, 91, 91, 0.8);"></span>
+
+                <div class="inputBox2">
+                    <span class="tx1 sp1">用户名</span><br />
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="请输入用户名" name="stown" onblur="checkUsername()" required>
+                </div>
+
+                <br />
+                <button type="submit" class="btn"
+                    style="box-shadow: 0 0 10px 0 rgba(255, 153, 144, 0.5);margin-top:30px">登录</button>
+                <div style="padding-bottom: 40px;">
+                </div>
+                <div>
+                    <p class="link">还没有账号？<a href="./registration.html">注册</a></p>
+                </div>
+            </form>
+            <div class="container" style="margin-top: 30px; text-align: center;">
+                <a href="book_list.html" class="btn"
+                    style="box-shadow: 0 0 10px 0 rgba(255, 153, 144, 0.5); display: block; margin-bottom: 10px;">进入图书列表</a>
+                <a href="add_book.html" class="btn"
+                    style="box-shadow: 0 0 10px 0 rgba(255, 153, 144, 0.5); display: block; margin-bottom: 10px;">添加新图书</a>
+                <a href="borrow_history.html" class="btn"
+                    style="box-shadow: 0 0 10px 0 rgba(255, 153, 144, 0.5); display: block;">查看我的借阅记录</a>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
